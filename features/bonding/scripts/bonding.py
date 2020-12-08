@@ -105,7 +105,8 @@ class BondingTemplator(object):
             print("error processing", self.__nmstate_templ, ":", e)
             sys.exit(1)
 
-    def __write_template_to_file(self, data: Text, outfile: str) -> NoReturn:
+    @staticmethod
+    def __write_template_to_file(data: Text, outfile: str) -> NoReturn:
         try:
             with open(outfile, 'w') as file:
                 file.write(data)
@@ -124,7 +125,8 @@ class BondingTemplator(object):
             '-ignition-bond.ign'
         self.__write_template_to_file(data, outfile)
 
-    def read_parameters_file(self, params_file: str) -> dict:
+    @staticmethod
+    def read_parameters_file(params_file: str) -> dict:
         try:
             with open(params_file) as file:
                 parameters = yaml.load(file, Loader=yaml.FullLoader)

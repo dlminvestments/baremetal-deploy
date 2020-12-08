@@ -6,6 +6,7 @@ class FilterModule(object):
     def filters(self):
         return {"deprecate_me": self.warn_filter}
 
-    def warn_filter(self, message, **kwargs):
+    @staticmethod
+    def warn_filter(message, **kwargs):
         Display().deprecated(message)
         return message

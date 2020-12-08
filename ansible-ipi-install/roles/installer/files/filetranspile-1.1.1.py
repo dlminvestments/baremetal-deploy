@@ -73,7 +73,8 @@ class IgnitionSpec(abc.ABC):
         """
         raise NotImplementedError("Must be implemented in a subclass")
 
-    def merge_with_ignition(self, ignition_cfg, files, links):
+    @staticmethod
+    def merge_with_ignition(ignition_cfg, files, links):
         """
         Merge file snippets into the ignition config.
 

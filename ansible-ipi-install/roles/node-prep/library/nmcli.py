@@ -649,7 +649,8 @@ class Nmcli(object):
             cmd, use_unsafe_shell=use_unsafe_shell, data=data
         )
 
-    def merge_secrets(self, proxy, config, setting_name):
+    @staticmethod
+    def merge_secrets(proxy, config, setting_name):
         try:
             # returns a dict of dicts mapping name::setting, where setting is a dict
             # mapping key::value.  Each member of the 'setting' dict is a secret
