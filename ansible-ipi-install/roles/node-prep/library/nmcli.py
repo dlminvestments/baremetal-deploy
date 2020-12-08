@@ -523,8 +523,6 @@ try:
 
     gi.require_version("NM", "1.0")
 
-    from gi.repository import NM
-
     HAVE_NM_CLIENT = True
 except (ImportError, ValueError):
     HAVE_NM_CLIENT = False
