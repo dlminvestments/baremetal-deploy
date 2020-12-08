@@ -261,7 +261,8 @@ class LibvirtConnection(object):
     def undefine(self, vmid):
         return self.find_vm(vmid).undefine()
 
-    def get_status2(self, vm):
+    @staticmethod
+    def get_status2(vm):
         state = vm.info()[0]
         return VIRT_STATE_NAME_MAP.get(state, "unknown")
 
