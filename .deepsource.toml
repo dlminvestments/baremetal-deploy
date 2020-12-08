@@ -1,0 +1,58 @@
+version = 1
+
+[[analyzers]]
+name = "python"
+enabled = true
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+
+[[analyzers]]
+name = "go"
+enabled = true
+
+  [analyzers.meta]
+  import_paths = ["github.com/dlminvestments/baremetal-deploy"]
+
+[[analyzers]]
+name = "test-coverage"
+enabled = true
+
+[[analyzers]]
+name = "ruby"
+enabled = true
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  environment = [
+    "nodejs",
+    "jest",
+    "jquery",
+    "browser",
+    "jasmine",
+    "mocha",
+    "mongo"
+  ]
+  plugins = [
+    "react",
+    "vue",
+    "ember",
+    "angular",
+    "angularjs",
+    "meteor"
+  ]
+
+[[analyzers]]
+name = "sql"
+enabled = true
+
+[[analyzers]]
+name = "shell"
+enabled = true
+
+[[analyzers]]
+name = "java"
+enabled = true
