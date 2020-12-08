@@ -34,7 +34,7 @@ class BondingTemplator(object):
 
     def __process_phy_devices(
             self, phy_devices: list, bond_device: str) -> list:
-        results = list()
+        results = []
         for dev in phy_devices:
             try:
                 dev['bond_device'] = bond_device
@@ -51,7 +51,7 @@ class BondingTemplator(object):
 
     def __process_vlans(
             self, vlans: list, bond_device: str) -> list:
-        results = list()
+        results = []
         for vlan in vlans:
             try:
                 vlan['bond_device'] = bond_device
@@ -151,7 +151,7 @@ class BondingTemplator(object):
         return self.__render_nmstate(secondary)
 
     def generate_all(self, params: dict) -> dict:
-        result = dict()
+        result = {}
         result['ignition'] = self.generate_ignition(params)
         result['nmstate'] = self.generate_nmstate(params)
         return result

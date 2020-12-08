@@ -325,7 +325,7 @@ class Virt(object):
 
     def info(self):
         vms = self.list_vms()
-        info = dict()
+        info = {}
         for vm in vms:
             data = self.conn.find_vm(vm).info()
             # libvirt returns maxMem, memory, and cpuTime as long()'s, which
@@ -482,7 +482,7 @@ def core(module):
     xml = module.params.get("xml", None)
 
     v = Virt(uri, module)
-    res = dict()
+    res = {}
 
     if state and command == "list_vms":
         res = v.list_vms(state=state)
