@@ -1,0 +1,41 @@
+- uses: amancevice/setup-code-climate@v0
+  with:
+    cc_test_reporter_id: ${{ 23363ab4cc4bc05c3d009d61fa3bdfa861feb60463e3898523d4fbb2afeeaf58 }}
+- run: cc-test-reporter before-build
+# ...
+- run: cc-test-reporter after-build
+
+- name: Code Climate Test Reporter
+  uses: aktions/codeclimate-test-reporter@v1
+  with:
+    codeclimate-test-reporter-id: ${{ 23363ab4cc4bc05c3d009d61fa3bdfa861feb60463e3898523d4fbb2afeeaf58 }}
+    command: after-build
+
+name: Test
+on: [push, pull_request]
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: before_build
+        uses: caffco/code-climate-github-action@v1.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ 23363ab4cc4bc05c3d009d61fa3bdfa861feb60463e3898523d4fbb2afeeaf58 }}
+        with:
+          run_before_build: 'true'
+      - name: Run tests
+        run: yarn test --coverage
+      - name: collect_coverage
+        uses: caffco/code-climate-github-action@v1.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ 23363ab4cc4bc05c3d009d61fa3bdfa861feb60463e3898523d4fbb2afeeaf58 }}
+        with:
+          collect_coverage: 'true'
+          coverage_file_patterns: |
+            **/*.lcov:lcov
+      - name: after_build
+        uses: caffco/code-climate-github-action@v1.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ 23363ab4cc4bc05c3d009d61fa3bdfa861feb60463e3898523d4fbb2afeeaf58 }}
+        with:
+          run_after_build: 'true'
