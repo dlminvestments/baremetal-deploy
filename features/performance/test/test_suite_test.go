@@ -19,7 +19,7 @@ func init() {
 	junitPath = flag.String("junit", "junit.xml", "the path for the junit format report")
 }
 
-func generateManifest(filename, isolatedCpus, reservedCpus string, nonIsolatedCpus string, hugepagesNumber int) []byte {
+func generateManifest(filename, isolatedCpus, reservedCpus, nonIsolatedCpus string, hugepagesNumber int) []byte {
 	_, source, _, ok := runtime.Caller(1)
 	Expect(ok).To(BeTrue())
 	generator := path.Join(path.Dir(source), "./../generate.sh")

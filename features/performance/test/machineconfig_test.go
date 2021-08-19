@@ -61,7 +61,7 @@ var _ = Describe("TestPerformanceMachineConfig", func() {
 	})
 })
 
-func loadMachineConfig(filename, isolatedCpus, reservedCpus string, nonIsolatedCpus string, hugepagesNumber int) *mcfgv1.MachineConfig {
+func loadMachineConfig(filename, isolatedCpus, reservedCpus, nonIsolatedCpus string, hugepagesNumber int) *mcfgv1.MachineConfig {
 	decode := mcfgScheme.Codecs.UniversalDeserializer().Decode
 	out := generateManifest(filename, isolatedCpus, reservedCpus, nonIsolatedCpus, hugepagesNumber)
 	obj, _, err := decode(out, nil, nil)
