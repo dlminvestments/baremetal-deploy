@@ -531,7 +531,7 @@ from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils._text import to_native
 
 
-class Nmcli(object):
+class Nmcli:
     """
     This is the generic nmcli manipulation class that is subclassed based on platform.
     A subclass may wish to override the following action methods:-

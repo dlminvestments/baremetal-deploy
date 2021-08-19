@@ -183,7 +183,7 @@ class VMNotFound(Exception):
     pass
 
 
-class LibvirtConnection(object):
+class LibvirtConnection:
     def __init__(self, uri, module):
 
         self.module = module
@@ -303,7 +303,7 @@ class LibvirtConnection(object):
         return self.conn.defineXML(xml)
 
 
-class Virt(object):
+class Virt:
     def __init__(self, uri, module):
         self.module = module
         self.uri = uri
