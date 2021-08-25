@@ -2,7 +2,7 @@
 from ansible.utils.display import Display
 
 
-class FilterModule(object):
+class FilterModule:
     def filters(self):
         return {"deprecate_me": self.warn_filter}
 

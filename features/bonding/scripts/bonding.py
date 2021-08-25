@@ -12,7 +12,7 @@ from typing import NoReturn, Text
 TEMPLATE_DIR = os.path.dirname(sys.argv[0]) + '/../templates/'
 
 
-class BondingTemplator(object):
+class BondingTemplator:
 
     def __init__(self, templates_dir: str):
         self.__templates_dir = templates_dir
