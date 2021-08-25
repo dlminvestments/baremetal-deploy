@@ -30,7 +30,7 @@ func main() {
 
 }
 
-func doClient(serverAddr string, port int, localport int) {
+func doClient(serverAddr string, port, localport int) {
 	address, err := net.ResolveIPAddr("ip", serverAddr)
 
 	server := &sctp.SCTPAddr{

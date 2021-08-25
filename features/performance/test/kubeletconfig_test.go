@@ -46,7 +46,7 @@ var _ = Describe("TestPerformanceKubeletConfig", func() {
 	)
 })
 
-func loadKubeletConfig(filename, isolatedCpus, reservedCpus string, nonIsolatedCpus string, hugepagesNumber int) *mcfgv1.KubeletConfig {
+func loadKubeletConfig(filename, isolatedCpus, reservedCpus, nonIsolatedCpus string, hugepagesNumber int) *mcfgv1.KubeletConfig {
 	decode := mcfgScheme.Codecs.UniversalDeserializer().Decode
 	out := generateManifest(filename, isolatedCpus, reservedCpus, nonIsolatedCpus, hugepagesNumber)
 	obj, _, err := decode(out, nil, nil)
